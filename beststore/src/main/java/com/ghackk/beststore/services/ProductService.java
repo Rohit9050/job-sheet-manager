@@ -4,7 +4,7 @@ import com.ghackk.beststore.models.Product;
 import java.util.List;
 
 public interface ProductService {
-	// Get All Products
+    // Get All Products
     List<Product> getAllProducts();
     //Get Prdouct By Id
     Product getProductById(int id);
