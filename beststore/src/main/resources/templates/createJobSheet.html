@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Job Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; 
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #add8e6; 
+            color: black;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+            max-width: 60%; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 60%;
+            margin: auto;
+            background-color: white; 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label, input, textarea, select {
+            margin-bottom: 10px;
+            width: 100%; 
+        }
+        input[type="file"] {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: white;
+            cursor: pointer;
+        }
+        input[type="file"]::-webkit-file-upload-button {
+            background-color: #add8e6;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        input[type="file"]::-webkit-file-upload-button:hover {
+            background-color: #9fc6e6; 
+        }
+        button {
+            padding: 10px;
+            background-color: #add8e6; 
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #9fc6e6; 
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create New Job Sheet</h1>
+    <form action="/save-job-sheet" method="post" enctype="multipart/form-data">
+        <label for="clientId">Client ID:</label>
+        <input type="text" id="clientId" name="clientId" required>
+
+        <label for="clientName">Client Name:</label>
+        <input type="text" id="clientName" name="clientName" required>
+
+        <label for="contactInfo">Contact Info:</label>
+        <input type="text" id="contactInfo" name="contactInfo" required>
+
+        <label for="receivedDate">Received Date:</label>
+        <input type="date" id="receivedDate" name="receivedDate" required>
+
+        <label for="inventoryReceived">Inventory Recieved</label>
+		<textarea id="inventoryReceived" name="inventoryReceived"></textarea>
+
+        <label for="reportedIssues">Reported Issues:</label>
+        <textarea id="reportedIssues" name="reportedIssues"></textarea>
+
+        <label for="clientNotes">Client Notes:</label>
+        <textarea id="clientNotes" name="clientNotes"></textarea>
+
+        <label for="assignedTechnician">Assigned Technician:</label>
+        <input type="text" id="assignedTechnician" name="assignedTechnician">
+
+        <label for="estimatedAmount">Estimated Amount:</label>
+        <input type="text" id="estimatedAmount" name="estimatedAmount">
+
+        <label for="deadline">Deadline:</label>
+        <input type="date" id="deadline" name="deadline">
+
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select>
+
+        <button type="submit">Save Job Sheet</button>
+    </form>
+    <a href="/dashboard" class="back-link">Back to Dashboard</a>
+</body>
+</html>

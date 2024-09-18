@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Job Sheet</title>
+    <script>
+        function printJobSheet() {
+            window.print();
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; 
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #add8e6;
+            color: black;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+            max-width: 60%; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        table {
+            width: 60%; 
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .id-cell, .client-id-cell {
+            background-color: white; 
+            color: black; 
+        }
+        button, .save-note, .edit-button, .delete-button, .back-button, .save-pdf {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .save-note {
+            background-color: #add8e6; 
+            width: 60%; 
+        }
+        .save-note:hover {
+            background-color: #9fc6e6; 
+        }
+        .edit-button, .delete-button {
+            background-color: #9fc6e6; 
+            display: inline-block; 
+            width: 48%; 
+        }
+        .edit-button:hover, .delete-button:hover {
+            background-color: #7fb1d0; 
+        }
+        .back-button {
+            background-color: #333;
+            color: white;
+            display: inline-block;
+            width: auto;
+            text-align: center;
+        }
+        .back-button:hover {
+            background-color: #444; 
+        }
+        .save-pdf {
+            background-color: gray;
+            color: white;
+            width: 10%; 
+            display: inline-block;
+            margin-left: 0;
+        }
+        .note-section {
+            max-width: 60%; 
+            margin: auto;
+            margin-top: 20px;
+        }
+        textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .button-container {
+            text-align: center; 
+            margin-top: 20px;
+        }
+        .button-container .back-button {
+            display: inline-block;
+        }
+        .button-container .save-pdf {
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>View Job Sheet</h1>
+    <table>
+        <tr>
+            <th>ID:</th>
+            <td class="id-cell" th:text="${product.id}"></td>
+        </tr>
+        <tr>
+            <th>Client ID:</th>
+            <td class="client-id-cell" th:text="${product.clientId}"></td>
+        </tr>
+        <tr>
+            <th>Client Name:</th>
+            <td th:text="${product.clientName}"></td>
+        </tr>
+        <tr>
+            <th>Contact Info:</th>
+            <td th:text="${product.contactInfo}"></td>
+        </tr>
+        <tr>
+            <th>Received Date:</th>
+            <td th:text="${product.receivedDate}"></td>
+        </tr>
+        <tr>
+            <th>Inventory Received:</th>
+            <td th:text="${product.inventoryReceived}"></td>
+        </tr>
+        <tr>
+            <th>Reported Issues:</th>
+            <td th:text="${product.reportedIssues}"></td>
+        </tr>
+        <tr>
+            <th>Client Notes:</th>
+            <td th:text="${product.clientNotes}"></td>
+        </tr>
+        <tr>
+            <th>Assigned Technician:</th>
+            <td th:text="${product.assignedTechnician}"></td>
+        </tr>
+        <tr>
+            <th>Estimated Amount:</th>
+            <td th:text="${product.estimatedAmount}"></td>
+        </tr>
+        <tr>
+            <th>Deadline:</th>
+            <td th:text="${product.deadline}"></td>
+        </tr>
+        <tr>
+            <th>Status:</th>
+            <td th:text="${product.status}"></td>
+        </tr>
+    </table>
+
+    <div class="button-container">
+        <button class="back-button"><a href="/dashboard" style="text-decoration: none; color: inherit;">Back to Dashboard</a></button>
+    </div>
+
+    <div class="button-container">
+        <button class="save-pdf">Save as PDF</button>
+    </div>
+</body>
+</html>

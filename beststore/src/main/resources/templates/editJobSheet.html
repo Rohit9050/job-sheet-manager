@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Job Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; 
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #add8e6; 
+            color: black;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+            max-width: 60%; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        form {
+            max-width: 60%; 
+            margin: auto;
+            background-color: white; 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #add8e6; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #9fc6e6; 
+        }
+        .button-container {
+            text-align: center; 
+            margin-top: 20px;
+        }
+        .back-button {
+            background-color: #333; 
+            color: white;
+            text-align: center;
+        }
+        .back-button:hover {
+            background-color: #444; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Job Sheet</h1>
+    <form th:action="@{/update-job-sheet/{id}(id=${product.id})}" method="post" th:object="${product}">
+        <label for="receivedDate">Received Date:</label>
+        <input type="text" id="receivedDate" name="receivedDate" th:value="${product.receivedDate}" />
+
+        <label for="inventoryReceived">Upload Inventory Image/Document/Video:</label>
+        <input type="text" id="inventoryReceived" name="inventoryReceived" th:value="${product.inventoryReceived}" />
+
+        <label for="reportedIssues">Reported Issues:</label>
+        <input type="text" id="reportedIssues" name="reportedIssues" th:value="${product.reportedIssues}" />
+
+        <label for="clientNotes">Client Notes:</label>
+        <textarea id="clientNotes" name="clientNotes" th:text="${product.clientNotes}" placeholder="Enter your note here..."></textarea>
+
+        <label for="assignedTechnician">Assigned Technician:</label>
+        <input type="text" id="assignedTechnician" name="assignedTechnician" th:value="${product.assignedTechnician}" />
+
+        <label for="estimatedAmount">Estimated Amount:</label>
+        <input type="text" id="estimatedAmount" name="estimatedAmount" th:value="${product.estimatedAmount}" />
+
+        <label for="deadline">Deadline:</label>
+        <input type="text" id="deadline" name="deadline" th:value="${product.deadline}" />
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" th:value="${product.status}" />
+
+        <div class="button-container">
+            <button type="submit">Save Changes</button>
+        </div>
+        <div class="button-container">
+            <button class="back-button"><a href="/dashboard" style="text-decoration: none; color: inherit;">Back to Dashboard</a></button>
+        </div>
+    </form>
+</body>
+</html>
